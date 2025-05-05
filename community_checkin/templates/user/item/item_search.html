@@ -1,0 +1,26 @@
+<form action="{% url 'community_checkin:item_search_query' user_id %}" method="post">
+    <input type="text" name="query" id="query">
+    <button type="search" id="search">Search!</button>
+</form>
+
+{% if items %}
+    <table>
+        <tr>
+            <th>From</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Available</th>
+
+        </tr>
+        {% for item in items %}
+        <tr>
+            <td><p>{{item.owner}}</p></td>
+            <td><p><a href="{% url 'community_checkin:item_loan' user_id item.item_id%}">{{item.item_name}}</a></p></td>
+            <td><p>{{item.content}}</p></td>
+            <td><p>{{item.loan_count}}</p></td>
+        </tr>
+        {% endfor %}
+    </table>
+{% else %}
+    <p>No items available.</p>
+{% endif %}

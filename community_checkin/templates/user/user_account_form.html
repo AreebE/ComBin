@@ -1,0 +1,30 @@
+<h1>User Login</h1>
+<form action="{% url 'community_checkin:login_user' %}" method="post">
+    <h2>Login:</h2>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Password</th>
+        </tr>
+        <tr>
+            <td><input type="text" name="name" id="name"></td>
+            <td><input type="text" name="password" id="password"></td>
+        </tr>
+    </table>
+    <button type="submit" id="login">Login!</button>
+</form>
+
+<form action="{% url 'community_checkin:create_user' %}" method="post">
+    <h2>Create Account:</h2>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Password</th>
+        </tr>
+        <tr>
+            <td><input type="text" name="name" id="name"></td>
+            <td><input type="text" name="password" id="password"></td>
+        </tr>
+    </table>
+    <button type="submit" id="login">Login!</button>
+</form>

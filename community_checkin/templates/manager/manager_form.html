@@ -1,0 +1,38 @@
+<legend><h1>{{ manager.name }}</h1></legend>
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+{% if items %}
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Loan Count</th>
+            <th>Description</th>
+        </tr>
+        {% for item in items %}
+        <tr>
+            <td><p><a href="{{item.id}}/item">{{item.name}}</a></p></td>
+            <td><p>{{item.loan_count}}</p></td>
+            <td><p>{{item.content}}</p></td>
+        </tr>
+        {% endfor %}
+    </table>
+{% else %}
+    <p>No items made.</p>
+{% endif %}
+
+<form action="{% url 'community_checkin:add_item' manager.id %}" method="post">
+<h1>NEW ITEM:</h1>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Loan Count</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td><input type="text" name="name" id="name"></td>
+        <td><input type="text" name="loan_count" id="loan_count"></td>
+        <td><input type="text" name="content" id="content"></td>
+    </tr>
+</table>
+<button type="submit" id="add_item">Add item!</button>
+</form>

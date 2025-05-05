@@ -1,0 +1,4 @@
+#!/bin/bash
+python3 manage.py makemigrations community_checkin
+python3 manage.py sqlmigrate community_checkin 0003
+python3 manage.py migrate

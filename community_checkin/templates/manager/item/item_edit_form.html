@@ -1,0 +1,37 @@
+<h1>EDIT ITEM:</h1>
+<form action="{% url 'community_checkin:update_item' manager_id item.id %}" method="post">
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Loan Count</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td><input type="text" name="name" id="name" value="{{item.name}}"></td>
+            <td><input type="text" name="loan_count" id="loan_count" value="{{item.loan_count}}"></td>
+            <td><input type="text" name="content" id="content" value="{{item.content}}"></td>
+        </tr>
+    </table>
+    <button type="submit" id="update_item">Update item!</button>
+</form>
+
+{% if loans %}
+    <table>
+        <tr>
+            <th>Loaned From</th>
+            <th>Start</th>
+            <th>End</th>
+        </tr>
+        {% for loan in loans %}
+            <tr>
+                <td>{{loan.loanee}}</td>
+                <td>{{loan.start_date}}</td>
+                <td>{{loan.end_date}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endif %}
+
+<form action="{% url 'community_checkin:delete_item' manager_id item.id %}" method="post">
+    <button type="submit" id="delete_item">Delete item!</button>
+</form>

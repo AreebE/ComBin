@@ -1,0 +1,31 @@
+<legend><h1>{{ user.name }}</h1></legend>
+<h2>Items Loaned:</h2>
+{% if loans %}
+    <table>
+        <tr>
+            <th>From</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Start</th>
+            <th>End</th>
+        </tr>
+        {% for loan in loans %}
+        <tr>
+            <td><p>{{loan.owner}}</p></td>
+            <td><p>{{loan.item_name}}</p></td>
+            <td><p>{{loan.content}}</p></td>
+            <td><p>{{loan.start_date}}</p></td>
+            <td><p>{{loan.end_date}}</p></td>
+        </tr>
+        {% endfor %}
+    </table>
+{% else %}
+    <p>No items loaned.</p>
+{% endif %}
+<form action="{% url 'community_checkin:item_search' user.id %}" method="post">
+    <button type="submit" id="search">Search for Items</button>
+</form>
+
+<form action="{% url 'community_checkin:item_history' user.id %}" method="post">
+    <button type="submit" id="search">View History</button>
+</form>

@@ -1,0 +1,26 @@
+<h1>Loaning item {{ item.name }}</h1>
+<form action="{% url 'community_checkin:create_loan' user_id item.id %}" method="post">
+    <table>
+        <tr>
+            <th>From:</th>
+            <th>To:</th>
+        </tr>
+        <tr>
+            <td>
+                <input
+                    type="date"
+                    id="start"
+                    name="start"
+                    />
+            </td>
+            <td>
+                <input
+                    type="date"
+                    id="end"
+                    name="end"
+                    />
+            </td>
+        </tr>
+    </table>
+    <button type="submit" id="submit">Submit loan</button>
+</form>

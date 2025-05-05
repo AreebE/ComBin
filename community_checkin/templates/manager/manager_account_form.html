@@ -1,0 +1,31 @@
+<h1>Manager Login:</h1>
+
+<form action="{% url 'community_checkin:login_manager' %}" method="post">
+    <h2>Login:</h2>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Password</th>
+        </tr>
+        <tr>
+            <td><input type="text" name="name_l" id="name_l"></td>
+            <td><input type="text" name="password_l" id="password_l"></td>
+        </tr>
+    </table>
+    <button type="submit" id="login">Login!</button>
+</form>
+
+<form action="{% url 'community_checkin:create_manager' %}" method="post">
+    <h2>Create Account:</h2>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Password</th>
+        </tr>
+        <tr>
+            <td><input type="text" name="name_c" id="name_c"></td>
+            <td><input type="text" name="password_c" id="password_c"></td>
+        </tr>
+    </table>
+    <button type="submit" id="login">Create Manager Account!</button>
+</form>
